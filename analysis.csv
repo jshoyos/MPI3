@@ -1,0 +1,2 @@
+Model Name,Vocabulary Size,Correct,Non Guessed,Accuracy
+word2vec-google-news-300,3000000,70,79,0.8860759493670886
