@@ -5,13 +5,18 @@ import random
 import csv
 import numpy as np
 
-def write_to_csv(file_name,header, rows):
+def make_header(file_name,header):
     with open(file_name, 'a') as f:
         writer = csv.writer(f)
         writer.writerow(header)
+
+def write_to_csv(file_name,rows):
+    with open(file_name, 'a') as f:
+        writer = csv.writer(f)
         writer.writerows(rows)
 
-def AI_Answer(model, input_file_path, model_name):
+def ai_answer(model, input_file_path, model_name):
+    count = 0;
     csv_file = pd.read_csv(input_file_path)
     question_words = csv_file.question
     answer = csv_file.answer
@@ -36,10 +41,9 @@ def AI_Answer(model, input_file_path, model_name):
                 guessed_word = guesses[i][random.choice(range(len(guesses[0])))]
                 label = 'guess'
         rows_to_write.append([question_words[i], answer[i], guessed_word, label])
-        headers = ['Question', 'Solution', 'AI Guess', 'Label']
-    write_to_csv(f'{model_name}-details.csv', headers, rows_to_write)
+    write_to_csv(f'{model_name}-details.csv', rows_to_write)
 
-def Analysis(model, model_result_path):
+def analysis(model, model_result_path):
     model_name = model_result_path.split("-details")[0]
     vocabulary_size = len(model.index_to_key)
     csv_file = pd.read_csv(model_result_path)
@@ -48,38 +52,42 @@ def Analysis(model, model_result_path):
     V = np.count_nonzero(labels == "wrong") + C
     accuracy = C/V
     row = [model_name, vocabulary_size, C, V, accuracy]
-    headers = ['Model Name', 'Vocabulary Size', 'Correct', 'Non Guessed', 'Accuracy']
-    write_to_csv('analysis.csv', headers, [row])
+    write_to_csv('analysis.csv', [row])
 
 
+
+header_ai_answers = ['Question', 'Solution', 'AI Guess', 'Label']
+header_analysis = ['Model Name', 'Vocabulary Size', 'Correct', 'Non Guessed', 'Accuracy']
+input_file_path = './synonyms.csv'
+make_header('analysis.csv',header_analysis)
 # TASK 1
 wv = api.load('word2vec-google-news-300')
-input_file_path = './synonyms.csv'
-AI_Answer(wv, input_file_path, 'word2vec-google-news-300')
-Analysis(wv, 'word2vec-google-news-300-details.csv')
+make_header('word2vec-google-news-300-details.csv',header_ai_answers)
+ai_answer(wv, input_file_path, 'word2vec-google-news-300')
+analysis(wv, 'word2vec-google-news-300-details.csv')
 
 # TASK 2
 # 2 Different Corpus with the same embedded size of 100
 wv_twitter_100 = api.load("glove-twitter-100")
-input_file_path = './synonyms.csv'
-AI_Answer(wv_twitter_100, input_file_path, "glove-twitter-100")
-Analysis(wv_twitter_100, "glove-twitter-100-details.csv")	
+make_header("glove-twitter-100-details.csv",header_ai_answers)
+ai_answer(wv_twitter_100, input_file_path, "glove-twitter-100")
+analysis(wv_twitter_100, "glove-twitter-100-details.csv")	
 
 wv_wiki_100 = api.load("glove-wiki-gigaword-100")
-input_file_path = './synonyms.csv'
-AI_Answer(wv_wiki_100, input_file_path, "glove-wiki-gigaword-100")
-Analysis(wv_wiki_100, "glove-wiki-gigaword-100-details.csv")
+make_header("glove-wiki-gigaword-100-details.csv",header_ai_answers)
+ai_answer(wv_wiki_100, input_file_path, "glove-wiki-gigaword-100")
+analysis(wv_wiki_100, "glove-wiki-gigaword-100-details.csv")
 
 # 2 Same Corpus with different embedded size
 wv_twitter_25 = api.load("glove-twitter-25")
-input_file_path = './synonyms.csv'
-AI_Answer(wv_twitter_25, input_file_path, "glove-twitter-25")
-Analysis(wv_twitter_25, "glove-twitter-25-details.csv")	
+make_header("glove-twitter-25-details.csv",header_ai_answers)
+ai_answer(wv_twitter_25, input_file_path, "glove-twitter-25")
+analysis(wv_twitter_25, "glove-twitter-25-details.csv")	
 
 wv_twitter_50 = api.load("glove-twitter-50")
-input_file_path = './synonyms.csv'
-AI_Answer(wv_twitter_50, input_file_path, "glove-twitter-50")
-Analysis(wv_twitter_50, "glove-twitter-50-details.csv")	
+make_header("glove-twitter-50-details.csv",header_ai_answers)
+ai_answer(wv_twitter_50, input_file_path, "glove-twitter-50")
+analysis(wv_twitter_50, "glove-twitter-50-details.csv")	
 
 
 

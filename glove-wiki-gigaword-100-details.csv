@@ -1,3 +1,4 @@
+
 Question,Solution,AI Guess,Label
 enormously,tremendously,tremendously,correct
 provisions,stipulations,stipulations,correct
@@ -42,7 +43,7 @@ highlight,accentuate,accentuate,correct
 hastily,hurriedly,hurriedly,correct
 temperate,mild,mild,correct
 grin,smile,smile,correct
-verbally,orally,overtly,guess
+verbally,orally,orally,guess
 physician,doctor,doctor,correct
 essentially,basically,basically,correct
 keen,sharp,useful,wrong

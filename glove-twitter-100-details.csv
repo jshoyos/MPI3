@@ -1,7 +1,8 @@
+
 Question,Solution,AI Guess,Label
 enormously,tremendously,tremendously,correct
 provisions,stipulations,jurisdictions,wrong
-haphazardly,randomly,densely,guess
+haphazardly,randomly,linearly,guess
 prominent,conspicuous,mysterious,wrong
 zenith,pinnacle,pinnacle,correct
 flawed,imperfect,imperfect,correct
@@ -34,15 +35,15 @@ deftly,skillfully,humorously,wrong
 distribute,circulate,commercialize,wrong
 discrepancies,differences,differences,correct
 prolific,productive,promising,wrong
-unmatched,unequaled,unrecognized,wrong
-peculiarly,uniquely,patriotically,guess
+unmatched,unequaled,alienated,wrong
+peculiarly,uniquely,uniquely,guess
 hue,color,color,correct
 hind,rear,hairy,wrong
 highlight,accentuate,alter,wrong
 hastily,hurriedly,habitually,wrong
 temperate,mild,mild,correct
 grin,smile,smile,correct
-verbally,orally,orally,guess
+verbally,orally,fittingly,guess
 physician,doctor,nurse,wrong
 essentially,basically,basically,correct
 keen,sharp,sharp,correct
