@@ -6,7 +6,7 @@ import csv
 import numpy as np
 
 def write_to_csv(file_name,header, rows):
-    with open(file_name, 'w') as f:
+    with open(file_name, 'a') as f:
         writer = csv.writer(f)
         writer.writerow(header)
         writer.writerows(rows)
@@ -24,7 +24,7 @@ def AI_Answer(model, input_file_path, model_name):
         guess_rank = -sys.maxsize
         for j in range(len(guesses[0])):
             try:
-                sim = wv.similarity(question_words[i], guesses[i][j])
+                sim = model.similarity(question_words[i], guesses[i][j])
                 if guess_rank < sim:
                     guess_rank = sim
                     guessed_word = guesses[i][j]
@@ -58,9 +58,28 @@ input_file_path = './synonyms.csv'
 AI_Answer(wv, input_file_path, 'word2vec-google-news-300')
 Analysis(wv, 'word2vec-google-news-300-details.csv')
 
+# TASK 2
+# 2 Different Corpus with the same embedded size of 100
+wv_twitter_100 = api.load("glove-twitter-100")
+input_file_path = './synonyms.csv'
+AI_Answer(wv_twitter_100, input_file_path, "glove-twitter-100")
+Analysis(wv_twitter_100, "glove-twitter-100-details.csv")	
 
+wv_wiki_100 = api.load("glove-wiki-gigaword-100")
+input_file_path = './synonyms.csv'
+AI_Answer(wv_wiki_100, input_file_path, "glove-wiki-gigaword-100")
+Analysis(wv_wiki_100, "glove-wiki-gigaword-100-details.csv")
 
+# 2 Same Corpus with different embedded size
+wv_twitter_25 = api.load("glove-twitter-25")
+input_file_path = './synonyms.csv'
+AI_Answer(wv_twitter_25, input_file_path, "glove-twitter-25")
+Analysis(wv_twitter_25, "glove-twitter-25-details.csv")	
 
+wv_twitter_50 = api.load("glove-twitter-50")
+input_file_path = './synonyms.csv'
+AI_Answer(wv_twitter_50, input_file_path, "glove-twitter-50")
+Analysis(wv_twitter_50, "glove-twitter-50-details.csv")	
 
 
 

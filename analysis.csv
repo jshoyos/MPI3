@@ -1,2 +1,11 @@
-Model Name,Vocabulary Size,Correct,Non Guessed,Accuracy
-word2vec-google-news-300,3000000,70,79,0.8860759493670886
+
+Model Name,Vocabulary Size,Correct,Non Guessed,Accuracy
+word2vec-google-news-300,3000000,70,79,0.8860759493670886
+Model Name,Vocabulary Size,Correct,Non Guessed,Accuracy
+glove-twitter-100,1193514,38,76,0.5
+Model Name,Vocabulary Size,Correct,Non Guessed,Accuracy
+glove-wiki-gigaword-100,400000,64,79,0.810126582278481
+Model Name,Vocabulary Size,Correct,Non Guessed,Accuracy
+glove-twitter-25,1193514,33,76,0.4342105263157895
+Model Name,Vocabulary Size,Correct,Non Guessed,Accuracy
+glove-twitter-50,1193514,35,76,0.4605263157894737
