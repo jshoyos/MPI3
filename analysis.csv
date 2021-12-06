@@ -1,5 +1,5 @@
 Model Name,Vocabulary Size,Correct,Non Guessed,Accuracy
-word2vec-google-news-300,3000000,140,158,0.8860759493670886
+word2vec-google-news-300,3000000,70,79,0.8860759493670886
 fasttext-wiki-news-subwords-300,999999,74,80,0.925
 glove-wiki-gigaword-300,400000,70,79,0.8860759493670886
 glove-twitter-25,1193514,34,76,0.4473684210526316
