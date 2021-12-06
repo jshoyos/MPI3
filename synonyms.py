@@ -67,16 +67,16 @@ ai_answer(wv, input_file_path, 'word2vec-google-news-300')
 analysis(wv, 'word2vec-google-news-300-details.csv')
 
 # TASK 2
-# 2 Different Corpus with the same embedded size of 100
-wv_twitter_100 = api.load("glove-twitter-100")
-make_header("glove-twitter-100-details.csv",header_ai_answers)
-ai_answer(wv_twitter_100, input_file_path, "glove-twitter-100")
-analysis(wv_twitter_100, "glove-twitter-100-details.csv")	
+# 2 Different Corpus with the same embedded size of 300
+wv_fast_text = api.load("fasttext-wiki-news-subwords-300")
+make_header("fasttext-wiki-news-subwords-300-details.csv",header_ai_answers)
+ai_answer(wv_fast_text, input_file_path, "fasttext-wiki-news-subwords-300")
+analysis(wv_fast_text, "fasttext-wiki-news-subwords-300-details.csv")	
 
-wv_wiki_100 = api.load("glove-wiki-gigaword-100")
-make_header("glove-wiki-gigaword-100-details.csv",header_ai_answers)
-ai_answer(wv_wiki_100, input_file_path, "glove-wiki-gigaword-100")
-analysis(wv_wiki_100, "glove-wiki-gigaword-100-details.csv")
+wv_wiki_300 = api.load("glove-wiki-gigaword-300")
+make_header("glove-wiki-gigaword-300-details.csv",header_ai_answers)
+ai_answer(wv_wiki_300, input_file_path, "glove-wiki-gigaword-300")
+analysis(wv_wiki_300, "glove-wiki-gigaword-300-details.csv")
 
 # 2 Same Corpus with different embedded size
 wv_twitter_25 = api.load("glove-twitter-25")
