@@ -1,5 +1,5 @@
-### MPI 3
-SOEN 472 AI mini project 3 at Concordia University.
+## MPI 3
+SOEN 472 Artificial Intelligence mini project 3 at Concordia University.
 https://github.com/jshoyos/MPI3
 
 To run the project follow these steps:
